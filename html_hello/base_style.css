@@ -1,0 +1,23 @@
+/* 
+These are the basic styles used in most of the exercieses here.
+These are used to recreate the effects from using deprecrated attributes on elements (eg. `border` on `table`)
+ */
+
+table {
+    border-width: 2px;
+    border-style: solid;
+    border-left-color: #808080;
+    border-top-color: #808080;
+    border-right-color: #2c2c2c;
+    border-bottom-color: #2c2c2c;
+}
+
+th,
+td {
+    border-width: 1px;
+    border-style: solid;
+    border-left-color: #2c2c2c;
+    border-top-color: #2c2c2c;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+}
