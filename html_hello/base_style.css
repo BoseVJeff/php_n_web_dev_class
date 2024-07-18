@@ -6,18 +6,18 @@ These are used to recreate the effects from using deprecrated attributes on elem
 table {
     border-width: 2px;
     border-style: solid;
-    border-left-color: #808080;
-    border-top-color: #808080;
-    border-right-color: #2c2c2c;
-    border-bottom-color: #2c2c2c;
+    border-inline-start-color: #808080;
+    border-block-start-color: #808080;
+    border-inline-end-color: #2c2c2c;
+    border-block-end-color: #2c2c2c;
 }
 
 th,
 td {
     border-width: 1px;
     border-style: solid;
-    border-left-color: #2c2c2c;
-    border-top-color: #2c2c2c;
-    border-right-color: #808080;
-    border-bottom-color: #808080;
+    border-inline-start-color: #2c2c2c;
+    border-block-start-color: #2c2c2c;
+    border-inline-end-color: #808080;
+    border-block-end-color: #808080;
 }
