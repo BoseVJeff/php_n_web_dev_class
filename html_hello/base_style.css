@@ -21,3 +21,7 @@ td {
     border-inline-end-color: #808080;
     border-block-end-color: #808080;
 }
+
+th {
+    font-weight: bold;
+}
