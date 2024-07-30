@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Forms</title>
+
+    <style>
+        .label {
+            display: inline-block;
+            width: 9ch;
+            padding-block: 0.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" method="get">
+        <div class="hobbycontainer">
+            <span class="label">Hobby:</span>
+            <input type="checkbox" name="a" id="a1" value="A1">
+            <label for="a1">A1</label>
+            <input type="checkbox" name="a" id="a2" value="A2">
+            <label for="a2">A2</label>
+            <input type="checkbox" name="a" id="a3" value="A3">
+            <label for="a3">A3</label>
+        </div>
+        <div class="gendercontainer">
+            <span class="label">Gender:</span>
+            <input type="radio" name="gender" id="male" value="male" checked>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="other" value="other">
+            <label for="other">Other</label>
+        </div>
+        <div class="nameContainer">
+            <label for="name" class="label">Name: </label>
+            <input type="text" name="name" id="name" value="Vedant">
+        </div>
+        <div class="emailcontainer">
+            <label for="email" class="label">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="agecontainer">
+            <label for="age" class="label">Age:</label>
+            <input type="number" name="age" id="age" min="0">
+        </div>
+        <div class="dobcontainer">
+            <label for="dob" class="label">DoB:</label>
+            <input type="date" name="dob" id="dob">
+        </div>
+        <div class="passwordcontainer">
+            <label for="password" class="label">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+    </form>
+</body>
+
+</html>
