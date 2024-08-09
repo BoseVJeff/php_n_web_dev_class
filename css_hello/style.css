@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* 100 */
+@property --body-background-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f3f4f6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    background-color: var(--body-background-color);
+}
+
+/* 300 */
+@property --form-background-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #d1d5db;
+}
+
+/* 600 */
+@property --form-border-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #4b5563;
+}
+
+form {
+    /* 300 */
+    width: fit-content;
+    border-radius: 1rem;
+    /* 600 */
+    border: 2px solid var(--form-border-color);
+    background-color: var(--form-background-color);
+    padding: 1rem;
+    box-shadow: 0 0 1rem 1rem var(--form-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=date] {
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    padding-block: 0.2rem;
+    padding-inline: 0.5rem;
+}
+
+.label::after {
+    content: ":";
+}
+
+.btngroup {
+    width: 100%;
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    flex-direction: row;
+    justify-items: stretch;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.btngroup * {
+    flex-grow: 1;
+    border: 1px solid var(--form-border-color);
+}
+
+.submit {
+    border-radius: 0.25rem;
+}
+
+.reset {
+    border-radius: 0.25rem;
+}
