@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let a = 10;
+            let b = 20;
+            let c = a + b;
+            document.getElementById("js-parent").innerText += `Binary: ${customString(a, b, c, 2)}\n`;
+            document.getElementById("js-parent").innerText += `Decimal: ${customString(a, b, c, 10)}\n`;
+            document.getElementById("js-parent").innerText += `Hexadecimal: ${customString(a, b, c, 16)}\n`;
+        });
+        function customString(a, b, c, radix) {
+            return `Sum of ${a.toString(radix)} and ${b.toString(radix)} is ${c.toString(radix)}`;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="js-parent"></div>
+</body>
+
+</html>

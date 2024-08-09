@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max of Three Numbers</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("form").addEventListener("submit", checkMax);
+        });
+        function checkMax(e) {
+            e.preventDefault();
+            if (confirm("Are you sure?")) {
+                let a = Number(document.getElementById("numa").value);
+                while (isNaN(a)) {
+                    a = Number(prompt("Enter value of number a"));
+                }
+                console.log(a);
+
+                let b = Number(document.getElementById("numb").value);
+                while (isNaN(b)) {
+                    b = Number(prompt("Enter value of number b"));
+                }
+                console.log(b);
+
+                let c = Number(document.getElementById("numc").value);
+                while (isNaN(c)) {
+                    c = Number(prompt("Enter value of number c"));
+                }
+                console.log(c);
+
+                let el = document.getElementById("js-container");
+                if (a >= b && a >= c) {
+                    alert("a is greatest!");
+                    el.innerText = "a is greatest!";
+                } else if (b >= a && b >= c) {
+                    alert("b is greatest!");
+                    el.innerText = "b is greatest!";
+                } else {
+                    alert("c is greatest!");
+                    el.innerText = "c is greatest!";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" id="form">
+        <input type="number" name="numa" id="numa" value="0">
+        <input type="number" name="numb" id="numb" value="0">
+        <input type="number" name="numc" id="numc" value="0">
+        <input type="submit" value="Check!">
+    </form>
+    <div id="js-container"></div>
+</body>
+
+</html>

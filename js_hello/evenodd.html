@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Odd</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+        });
+        function checkEven() {
+            let inputEl = document.getElementById("num-input");
+            let inputNum = 0;
+            while (inputEl.value == "" || isNaN(inputEl.value)) {
+                inputEl.value = Number(prompt("Enter a  number"));
+            }
+            if (inputNum % 2 == 0) {
+                alert("Number is even!");
+                document.getElementById("js-container").innerText = "Number is even!";
+            } else {
+                alert("Number is odd!");
+                document.getElementById("js-container").innerText = "Number is odd!";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" id="num-input">
+    <button type="button"></button>
+    <div id="js-container"></div>
+</body>
+
+</html>
