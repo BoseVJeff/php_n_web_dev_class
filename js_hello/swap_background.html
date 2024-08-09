@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Swap</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("laia-nunez-AThSwV0LsCQ-unsplash.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+
+    <script>
+        const backImg1 = URL.parse("laia-nunez-AThSwV0LsCQ-unsplash.jpg", document.baseURI);
+        const backImg2 = URL.parse("roberto-h-qToVxSYXPYU-unsplash.jpg", document.baseURI);
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("Attatching event listner...");
+            document.getElementById("swap").addEventListener("click", () => {
+                console.log("click handling...");
+                let currentBackImg = URL.parse(window.getComputedStyle(document.body).backgroundImage.split('"')[1]);
+
+                if (currentBackImg.href == backImg1.href) {
+                    console.log("1->2");
+                    document.body.style.backgroundImage = `url("${backImg2.toString()}")`;
+                } else if (currentBackImg.href == backImg2.href) {
+                    console.log("2->1");
+                    document.body.style.backgroundImage = `url("${backImg1.toString()}")`;
+                } else {
+                    console.log("x->1");
+                    console.log(currentBackImg);
+                    document.body.style.backgroundImage = `url("${backImg1.toString()}")`;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button type="button" id="swap">Swap Background</button>
+</body>
+
+</html>
