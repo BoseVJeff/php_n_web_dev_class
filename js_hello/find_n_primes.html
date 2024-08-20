@@ -10,6 +10,9 @@
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("form").addEventListener("submit", (e) => {
                 e.preventDefault();
+                if (!confirm("Do you want to continue with this check?")) {
+                    return;
+                }
                 if (isPrime(document.getElementById("count").value)) {
                     document.getElementById("message").innerText = "Number is prime!";
                 } else {
