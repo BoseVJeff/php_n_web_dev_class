@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence</title>
+    <script>
+        function getFibonacci(cnt) {
+            let fibList = [];
+            for (let i = 0; i < cnt; i++) {
+                if (i < 0) {
+                    throw new Error("Invalid count!");
+                } else if (i == 0) {
+                    fibList.push(0);
+                } else if (i == 1) {
+                    fibList.push(1);
+                } else {
+                    fibList.push(fibList[i - 1] + fibList[i - 2]);
+                }
+            }
+            return fibList;
+
+        }
+        function printList(list) {
+            let parEl = document.getElementById("numbers");
+            parEl.innerHTML = "";
+            for (const e of list) {
+                let el = document.createElement("div");
+                el.classList.add("fibnum");
+                el.innerText = e;
+                parEl.appendChild(el);
+            }
+            return;
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            let fibCnt = Number(URL.parse(window.location).searchParams.get("count"));
+            if (!isNaN(fibCnt)) {
+                printList(getFibonacci(fibCnt));
+            }
+            const form = document.getElementById("form");
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let data = (new FormData(form, e.submitter)).get("count");
+
+                if (data !== "" && !isNaN(Number(data))) {
+                    fibCnt = Number(data);
+                    printList(getFibonacci(fibCnt));
+                }
+            });
+            form.addEventListener("reset", () => {
+                document.getElementById("numbers").innerHTML = "";
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="#" method="get" id="form">
+        <input type="text" name="count" id="count" min="0" step="1">
+        <input type="submit" value="Generate">
+        <input type="reset" value="Reset">
+    </form>
+    <div class="numbers" id="numbers"></div>
+</body>
+
+</html>
