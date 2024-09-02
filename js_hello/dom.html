@@ -9,17 +9,20 @@
         * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
 
         html,
         body {
             width: 100%;
             height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         body {
-            margin: 0.5rem;
+            padding: 0.5rem;
+            /* Tailwind: slate 50 */
+            background-color: #f8fafc;
         }
 
         h1,
@@ -31,11 +34,47 @@
             font-weight: normal;
         }
 
+        button,
+        input[type=submit],
+        input[type=button],
+        input[type=reset] {
+            /* border: 1px solid black; */
+            /* Tailwind 400 */
+            border: 1px solid #94a3b8;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            /* Tailwind: slate 300 */
+            background-color: #cbd5e1;
+            cursor: pointer;
+        }
+
+        button:hover,
+        input[type=submit]:hover,
+        input[type=button]:hover,
+        input[type=reset]:hover {
+            border-color: #475569;
+            /* border-color: white; */
+        }
+
         body>div {
             border: 1px solid black;
             padding: 1rem;
             font-weight: normal;
             margin-block-end: 0.5rem;
+            /* Tailwind: slate 100 */
+            background-color: #f1f5f9;
+            /* Tailwind: shadow */
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            border-radius: 0.25rem;
+        }
+
+        #comments>div {
+            padding: 1rem;
+            border-block-end: 1px solid black;
+        }
+
+        #comments>div>p {
+            padding-inline-start: 1rem;
         }
     </style>
     <script>
@@ -53,6 +92,11 @@
             // Comment stuff
             document.getElementById("combtn").addEventListener("click", () => {
                 document.getElementById("comments").appendChild(generateCommentForm());
+            });
+            // Gender stuff
+            document.getElementById("gen-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                checkGender(new FormData(document.getElementById("gen-form")));
             });
         });
         function getCube(num) {
@@ -92,7 +136,27 @@
         function submitComment(parEl) {
             let name = parEl.querySelector("form input").value;
             let comment = parEl.querySelector("form textarea").value;
-            parEl.innerText = `${name}: ${comment}`;
+
+            let para = document.createElement("p");
+            para.innerText = comment;
+
+            parEl.innerText = "";
+
+            parEl.appendChild(document.createTextNode(name));
+            parEl.appendChild(para);
+
+            // parEl.innerText = `${name}: ${comment}`;
+        }
+        function checkGender(formData) {
+            let gender = formData.get("gender");
+            if (gender === "m") {
+                alert("Gender is Male!");
+            } else if (gender === "f") {
+                alert("Gender is Female!");
+            } else {
+                alert("Invalid choice!");
+            }
+            return;
         }
     </script>
 </head>
@@ -117,6 +181,26 @@
         </h2>
         <div id="comments"></div>
         <button type="button" id="combtn">Enter Comment</button>
+    </div>
+    <div>
+        <h2>
+            Radio Button Value in Javascript
+        </h2>
+        <form action="#" method="get" id="gen-form">
+            <div>
+                Choose Gender
+            </div>
+            <div>
+                <input type="radio" name="gender" id="gen-male" value="m">
+                <label for="gen-male">Male</label>
+                <input type="radio" name="gender" id="gen-female" value="f">
+                <label for="gen-female">Female</label>
+            </div>
+            <div>
+                <input type="submit" value="Check Gender">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
     </div>
 </body>
 
