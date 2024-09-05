@@ -110,7 +110,9 @@
             // Registration stuff
             document.getElementById("reg-form").addEventListener("submit", (e) => {
                 e.preventDefault();
-                console.log("Form validation incomplete!");
+                let el = document.getElementById("reg-form");
+                // console.log(formData);
+                validateRegForm(el);
             });
         });
         function getCube(num) {
@@ -171,6 +173,73 @@
                 alert("Invalid choice!");
             }
             return;
+        }
+        function validateRegForm(el) {
+            let data = new FormData(el);
+            let fname = data.get("fname");
+            let lname = data.get("lname");
+            let addr = data.get("addr");
+            let email = data.get("email");
+            let pass = data.get("pass");
+            let gen = data.get("gen");
+            let hobby = data.get("hobby");
+            let city = data.get("city");
+            let photo = data.get("photo");
+
+            console.log(data);
+
+
+            if (fname === "") {
+                alert("First name is required!");
+                el.querySelector("[name=fname]").focus();
+                return;
+            }
+            if (lname === "") {
+                alert("Last name is required!");
+                el.querySelector("[name=lname]").focus();
+                return;
+            }
+            if (addr === "") {
+                alert("Address is required!");
+                el.querySelector("[name=addr]").focus();
+                return;
+            }
+            // if (email === "") {
+            //     alert("Email address is required!");
+            //     el.querySelector("[name=email]").focus();
+            //     return;
+            // }
+            // if (!email.includes("@")) {
+            //     alert("Email is invalid!");
+            //     el.querySelector("[name=email]").focus();
+            //     return;
+            // }
+            if (pass === "") {
+                alert("Password cannot be empty!");
+                el.querySelector("[name=pass]").focus();
+                return;
+            }
+            if (gen === null) {
+                alert("Please select a gender!");
+                el.querySelector("[name=gen]").focus();
+                return;
+            }
+            if (hobby === "") {
+                alert("Please select a hobby!");
+                el.querySelector("[name=hobby]").focus();
+                return;
+            }
+            if (city === "") {
+                alert("Please select a city!");
+                el.querySelector("[name=city]").focus();
+                return;
+            }
+            if (photo.name === "") {
+                alert("Photo is required!");
+                el.querySelector("[name=photo]").focus();
+                return;
+            }
+            console.log("Form submission incomplete!");
         }
     </script>
 </head>
@@ -242,22 +311,22 @@
                 <input type="password" name="pass" id="pass">
             </div>
             <div>
-                <label for="reg-gender">Gender</label>
+                <label>Gender</label>
                 <span class="reg-gender">
-                    <input type="radio" name="reg-gender" id="reg-m" value="m">
+                    <input type="radio" name="gen" id="reg-m" value="m">
                     <label for="reg-m">Male</label>
-                    <input type="radio" name="reg-gender" id="reg-f" value="f">
+                    <input type="radio" name="gen" id="reg-f" value="f">
                     <label for="reg-m">Female</label>
                 </span>
             </div>
             <div>
                 <label for="reg-hobby">Hobby</label>
                 <span class="reg-hobby">
-                    <input type="checkbox" name="reg-hobby" id="reg-cricket" value="cricket">
+                    <input type="checkbox" name="hobby" id="reg-cricket" value="cricket">
                     <label for="reg-cricket">Cricket</label>
-                    <input type="checkbox" name="reg-hobby" id="reg-football" value="football">
+                    <input type="checkbox" name="hobby" id="reg-football" value="football">
                     <label for="reg-football">Football</label>
-                    <input type="checkbox" name="reg-hobby" id="reg-hockey" value="reg-hockey">
+                    <input type="checkbox" name="hobby" id="reg-hockey" value="reg-hockey">
                     <label for="reg-hockey">Hockey</label>
                 </span>
             </div>
