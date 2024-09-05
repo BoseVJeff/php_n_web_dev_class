@@ -76,6 +76,15 @@
         #comments>div>p {
             padding-inline-start: 1rem;
         }
+
+        #reg-form>div {
+            padding-block: 0.25rem;
+        }
+
+        #reg-form>div>label {
+            display: inline-block;
+            width: 10ch;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -97,6 +106,11 @@
             document.getElementById("gen-form").addEventListener("submit", (e) => {
                 e.preventDefault();
                 checkGender(new FormData(document.getElementById("gen-form")));
+            });
+            // Registration stuff
+            document.getElementById("reg-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                console.log("Form validation incomplete!");
             });
         });
         function getCube(num) {
@@ -198,6 +212,70 @@
             </div>
             <div>
                 <input type="submit" value="Check Gender">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2>
+            Registration Form
+        </h2>
+        <form action="#" method="get" id="reg-form">
+            <div>
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname">
+            </div>
+            <div>
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname">
+            </div>
+            <div>
+                <label for="addr">Address</label>
+                <textarea name="addr" cols="10" rows="3" id="addr"></textarea>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="pass">Password</label>
+                <input type="password" name="pass" id="pass">
+            </div>
+            <div>
+                <label for="reg-gender">Gender</label>
+                <span class="reg-gender">
+                    <input type="radio" name="reg-gender" id="reg-m" value="m">
+                    <label for="reg-m">Male</label>
+                    <input type="radio" name="reg-gender" id="reg-f" value="f">
+                    <label for="reg-m">Female</label>
+                </span>
+            </div>
+            <div>
+                <label for="reg-hobby">Hobby</label>
+                <span class="reg-hobby">
+                    <input type="checkbox" name="reg-hobby" id="reg-cricket" value="cricket">
+                    <label for="reg-cricket">Cricket</label>
+                    <input type="checkbox" name="reg-hobby" id="reg-football" value="football">
+                    <label for="reg-football">Football</label>
+                    <input type="checkbox" name="reg-hobby" id="reg-hockey" value="reg-hockey">
+                    <label for="reg-hockey">Hockey</label>
+                </span>
+            </div>
+            <div>
+                <label for="reg-city">City</label>
+                <select name="city" id="reg-city">
+                    <option value="">-- select city --</option>
+                    <option value="vadodara">Vadodara</option>
+                    <option value="ahemdabad">Ahemdabad</option>
+                    <option value="rajkot">Rajkot</option>
+                </select>
+            </div>
+            <div>
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" id="photo" accept="image/*">
+            </div>
+            <div>
+                <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
         </form>
