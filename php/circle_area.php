@@ -6,9 +6,9 @@
     <title>PHP Area of Circle</title>
 </head>
 <body>
-    <form action="#" method="get">
+    <form action=<?php echo $_SERVER['REQUEST_URI']; ?> method="get">
         <label for="radius">Radius</label>
-        <input type="number" name="radius" id="radius">
+        <input type="number" name="radius" id="radius" min="0" value=<?php echo $_GET["radius"]??"" ?>>
         <input type="submit" value="Submit">
     </form>
     <?php
