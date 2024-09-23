@@ -21,6 +21,10 @@
     echo $rno[0]."<br>";
     echo $rno[1]."<br>";
     echo $rno[2]."<br>";
+
+    for ($i=0; $i < 3; $i++) { 
+        echo $rno[$i]."<br>";
+    }
     ?>
 </body>
 </html>
